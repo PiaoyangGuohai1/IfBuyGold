@@ -1,0 +1,327 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f2f8;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --accent: #d9a441;
+  --accent-strong: #bb8628;
+  --text: #302b3d;
+  --text-light: #6f6585;
+  --border: rgba(82, 56, 112, 0.12);
+  --shadow: 0 20px 40px rgba(70, 44, 100, 0.12);
+  font-family: 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 0 0, rgba(217, 164, 65, 0.08), transparent 55%),
+    radial-gradient(circle at 100% 0, rgba(112, 66, 177, 0.1), transparent 45%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 24px 16px 8px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 3vw + 1rem, 3.5rem);
+  letter-spacing: 0.04em;
+}
+
+.app-header p {
+  margin: 12px auto 0;
+  max-width: 520px;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+
+.gold-price-card,
+.input-card,
+.list-card,
+.summary-card {
+  background: var(--surface);
+  backdrop-filter: blur(22px);
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.price-value {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.price-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.price-meta select,
+.price-meta button {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  box-shadow: 0 8px 16px rgba(48, 32, 72, 0.08);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.price-meta button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price-meta button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(187, 134, 40, 0.25);
+}
+
+.price-footer {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.manual-price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.manual-price input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  font-size: 1rem;
+}
+
+.manual-price button {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent-strong);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(187, 134, 40, 0.3);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-row label {
+  font-weight: 500;
+}
+
+.form-row input {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-row input:focus {
+  outline: none;
+  border-color: rgba(187, 134, 40, 0.6);
+  box-shadow: 0 8px 20px rgba(187, 134, 40, 0.18);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-actions button {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-actions button[type="submit"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: white;
+  box-shadow: 0 16px 28px rgba(187, 134, 40, 0.28);
+}
+
+.form-actions .ghost {
+  background: rgba(48, 32, 72, 0.05);
+  color: var(--text-light);
+}
+
+.form-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+thead tr {
+  background: rgba(48, 32, 72, 0.06);
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+thead th {
+  padding: 14px 12px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 16px 12px;
+  border-bottom: 1px solid rgba(48, 32, 72, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+tbody tr:hover td {
+  background: rgba(217, 164, 65, 0.08);
+}
+
+.numeric {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.empty-row td {
+  text-align: center;
+  padding: 40px 12px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.delete-button {
+  border: none;
+  background: transparent;
+  color: rgba(255, 0, 0, 0.65);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+.summary-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.positive {
+  color: #1c8c4a;
+}
+
+.negative {
+  color: #c73636;
+}
+
+.app-footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .gold-price-card,
+  .input-card,
+  .list-card,
+  .summary-card {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .price-meta {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .price-meta select,
+  .price-meta button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .manual-price button {
+    width: 100%;
+  }
+
+  .form-actions button {
+    flex: 1 1 100%;
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>如果当初买黄金</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>如果当初买黄金</h1>
+      <p>把每一次的冲动消费，换算成黄金克重，看看今天的你亏了多少。</p>
+    </header>
+
+    <section class="gold-price-card">
+      <div class="card-title">今日金价</div>
+      <div class="price-row">
+        <div class="price-value" id="current-price">--</div>
+        <div class="price-meta">
+          <label for="currency">货币：</label>
+          <select id="currency">
+            <option value="CNY">CNY 人民币</option>
+            <option value="USD">USD 美元</option>
+            <option value="HKD">HKD 港币</option>
+            <option value="EUR">EUR 欧元</option>
+          </select>
+          <button id="refresh-price" type="button">刷新</button>
+        </div>
+      </div>
+      <div class="price-footer" id="price-status">正在获取实时金价…</div>
+      <div class="manual-price">
+        <label for="manual-price">或手动输入当前金价（每克）：</label>
+        <input type="number" id="manual-price" step="0.01" min="0" placeholder="例如 520" />
+        <button id="apply-manual" type="button">应用</button>
+      </div>
+    </section>
+
+    <section class="input-card">
+      <div class="card-title">记录一次消费冲动</div>
+      <form id="expense-form">
+        <div class="form-row">
+          <label for="expense-title">消费内容</label>
+          <input id="expense-title" type="text" placeholder="例如：生日礼物、冲动购物" required />
+        </div>
+        <div class="form-row">
+          <label for="expense-amount">当时花费金额 (<span id="amount-currency">CNY</span>)</label>
+          <input id="expense-amount" type="number" min="0" step="0.01" required />
+        </div>
+        <div class="form-row">
+          <label for="expense-price">当时金价（每克）</label>
+          <input id="expense-price" type="number" min="0" step="0.01" placeholder="若未知可填今日金价" />
+        </div>
+        <div class="form-row">
+          <label for="expense-date">发生日期</label>
+          <input id="expense-date" type="date" />
+        </div>
+        <div class="form-actions">
+          <button type="submit">加入清单</button>
+          <button type="button" id="clear-all" class="ghost">清空所有记录</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-card">
+      <div class="card-title">黄金对比清单</div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>消费内容</th>
+              <th>日期</th>
+              <th class="numeric">花费金额</th>
+              <th class="numeric">折算克重</th>
+              <th class="numeric">今日价值</th>
+              <th class="numeric">差额</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="expense-list">
+            <tr class="empty-row">
+              <td colspan="7">还没有记录，先回想一次冲动消费吧。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="summary-card" id="summary">
+      <div class="card-title">累计汇总</div>
+      <div class="summary-grid">
+        <div>
+          <div class="summary-label">累计花费</div>
+          <div class="summary-value" id="total-spent">--</div>
+        </div>
+        <div>
+          <div class="summary-label">折算黄金</div>
+          <div class="summary-value" id="total-grams">--</div>
+        </div>
+        <div>
+          <div class="summary-label">若买黄金，今日价值</div>
+          <div class="summary-value" id="total-current">--</div>
+        </div>
+        <div>
+          <div class="summary-label">少赚 / 多花</div>
+          <div class="summary-value" id="total-diff">--</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p>数据仅供个人自省使用，若无法获取实时金价，请手动录入。</p>
+    </footer>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>

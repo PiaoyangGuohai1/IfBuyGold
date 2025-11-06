@@ -1,0 +1,17 @@
+{
+  "name": "if-buy-gold",
+  "version": "1.0.0",
+  "description": "If you bought gold - web app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "gold",
+    "finance",
+    "budget",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT"
+}
