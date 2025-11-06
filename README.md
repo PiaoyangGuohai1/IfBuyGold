@@ -4,7 +4,8 @@
 
 ## 访问网址
 
-- 本地启动后可通过浏览器访问：`http://localhost:3000`
+- GitHub Pages 部署地址：`https://<你的 GitHub 用户名>.github.io/IfBuyGold/`（将尖括号部分替换为实际的 GitHub 用户名）
+- 本地预览：`http://localhost:3000`
 
 ## 功能特性
 
@@ -17,13 +18,15 @@
 ## 使用方式
 
 1. 确保已安装 Node.js（18+）。
-2. 在项目根目录运行启动命令：
+2. 首次部署前，进入仓库设置（Settings → Pages），将 **Source** 设置为 **GitHub Actions**。
+3. 推送到 `main` 分支后，仓库会自动运行 GitHub Actions，将当前静态资源发布到 GitHub Pages。待工作流完成即可通过上方网址访问。
+4. 在本地预览页面时，可运行启动命令：
 
    ```bash
    npm start
    ```
 
-3. 浏览器打开 `http://localhost:3000` 即可访问应用页面。
+5. 浏览器打开 `http://localhost:3000` 即可访问应用页面。
 
 ## 注意事项
 
