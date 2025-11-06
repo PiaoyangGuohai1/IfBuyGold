@@ -2,6 +2,13 @@
 
 一个帮助记录冲动消费、换算成黄金价值的轻量网页应用。通过实时/手动录入今日金价，把曾经的消费金额折算为黄金克重，直观地看到如果当初买黄金，现在会值多少钱。
 
+## 访问网址
+
+默认推荐托管在 **GitHub Pages**，这样任何人都可以通过浏览器在线访问你的工具，不必在本地运行。
+
+- 对外访问地址：`https://<你的 GitHub 用户名>.github.io/IfBuyGold/`（将尖括号部分替换为实际的 GitHub 用户名，复制后即可分享给朋友）
+- 本地预览地址：`http://localhost:3000`
+
 ## 功能特性
 
 - **今日金价**：尝试从 Yahoo Finance 获取 GC=F 期货的实时价格，并根据所选货币换算为每克金价；若接口不可用，可手动输入。
@@ -12,14 +19,19 @@
 
 ## 使用方式
 
-1. 本项目为静态网页，直接打开 `index.html` 即可使用。
-2. 若需要本地启动一个静态服务器，可使用任意工具，例如 Python 内置 HTTP 服务：
+1. 确保已安装 Node.js（18+）。
+2. 在 GitHub 仓库页面打开 **Settings → Pages**，依次完成：
+   - 将 **Source** 选择为 **GitHub Actions**；
+   - 确保页面提示 “Build and deployment source” 为 GitHub Actions；
+   - 记录下页面展示的访问域名（通常形如 `https://<用户名>.github.io/IfBuyGold/`）。
+3. 推送到 `main` 分支后，GitHub Actions 会自动构建并部署静态资源到 GitHub Pages。几分钟后刷新上一步记录的网址，即可让任何人在线访问这个小工具。
+4. 在本地预览页面时，可运行启动命令：
 
    ```bash
-   python -m http.server 5173
+   npm start
    ```
 
-   然后在浏览器访问 `http://localhost:5173`。
+5. 浏览器打开 `http://localhost:3000` 即可访问应用页面。
 
 ## 注意事项
 
